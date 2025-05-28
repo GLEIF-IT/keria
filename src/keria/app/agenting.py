@@ -53,6 +53,27 @@ from ..core.authing import Authenticater
 from ..core.keeping import RemoteManager
 from ..db import basing
 
+
+class TruncatedFormatter(logging.Formatter):
+    """Formats log records with shorter module and function names and a right justified line number for readability."""
+    def __init__(self, fmt=None, datefmt=None, style='%'):
+        super().__init__(fmt, datefmt, style)
+
+    def format(self, record):
+        # Truncate module and funcName to first 'chars' characters
+        mod_chars = 10 # number of spaces to truncate to
+        fn_chars = 14 # number of spaces to truncate to
+        record.module = (record.module[:mod_chars] + ' ' * mod_chars)[:mod_chars]
+        record.funcName = (record.funcName[:fn_chars] + ' ' * fn_chars)[:fn_chars]
+        record.lineno = str(record.lineno).rjust(5)  # Ensure line number is right-aligned
+        return super().format(record)
+
+formatter = TruncatedFormatter('%(asctime)s [keria] %(levelname)-8s %(module)s.%(funcName)s-%(lineno)s %(message)s')
+formatter.default_msec_format = None
+logHandler = logging.StreamHandler()
+logHandler.setFormatter(formatter)
+ogler.baseFormatter = formatter
+ogler.baseConsoleHandler = logHandler
 logger = ogler.getLogger()
 
 @dataclass
@@ -120,11 +141,11 @@ class KERIAServerConfig:
 
 def runAgency(config: KERIAServerConfig):
     """Runs a KERIA Agency with the given Doers by calling Doist.do(). Useful for testing."""
-    help.ogler.level = logging.getLevelName(config.logLevel)
-    logger.setLevel(help.ogler.level)
+    ogler.level = logging.getLevelName(config.logLevel)
+    logger.setLevel(ogler.level)
     if config.logFile is not None:
-        help.ogler.headDirPath = config.logFile
-        help.ogler.reopen(name=config.name, temp=False, clear=True)
+        ogler.headDirPath = config.logFile
+        ogler.reopen(name="keria", temp=False, clear=True)
 
     logger.info("Starting Agent for %s listening: admin/%s, http/%s, boot/%s",
                 config.name, config.adminPort, config.httpPort, config.bootPort)
@@ -657,10 +678,12 @@ class ExchangeSender(doing.DoDoer):
             rec = msg["rec"]
             topic = msg['topic']
             hab = self.hby.habs[pre]
+            logger.debug("[%s | %s...%s]: Current Message Body= %s", hab.name, hab.pre[:4], hab.pre[-4:], msg);
             if self.exc.lead(hab, said=said):
                 atc = exchanging.serializeMessage(self.hby, said)
                 del atc[:serder.size]
                 for recp in rec:
+                    logger.debug("[%s | %s...%s]: Sending on topic %s to recipient %s from %s", hab.name, hab.pre[:4], hab.pre[-4:], topic, recp, pre)
                     postman = forwarding.StreamPoster(hby=self.hby, hab=self.agentHab, recp=recp, topic=topic)
                     try:
                         postman.send(serder=serder,
