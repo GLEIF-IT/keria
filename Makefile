@@ -1,7 +1,7 @@
 .PHONY: build-keria
 
-VERSION=0.2.0-rc1
-IMAGE_NAME=weboftrust/keria
+VERSION=0.3.0
+IMAGE_NAME=gleif/keria
 VERSION_TAG=$(IMAGE_NAME):$(VERSION)
 LATEST_TAG=$(IMAGE_NAME):latest
 
@@ -21,7 +21,6 @@ build-keria: .warn
 	@docker build \
 		--build-arg KERI_AGENT_CORS=false \
 		--platform=linux/amd64,linux/arm64 \
-		--no-cache \
 		-f images/keria.dockerfile \
 		-t $(LATEST_TAG) \
 		-t $(VERSION_TAG) \
