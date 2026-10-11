@@ -1,5 +1,5 @@
 [project]
-name = "keria"
+name = "gleif_keria"
 version = "0.4.1"
 description = "KERIA: KERI Agent in the cloud"
 readme = "README.md"
@@ -37,6 +37,11 @@ dependencies = [
     "marshmallow_dataclass==8.7.1",
     "deprecation==2.1.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/GLEIF-IT/keria"
+Changelog = "https://github.com/GLEIF-IT/keria/blob/release/gleif-keria-0.4.1/changelog.md"
+Issues = "https://github.com/WebOfTrust/keria/issues"
 
 [project.scripts]
 keria = "keria.app.cli.keria:main"
