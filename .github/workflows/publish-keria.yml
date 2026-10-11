@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Existing release tag matching the package version (e.g. 0.4.1)
+        description: Existing upstream-compatible release tag (e.g. 0.4.1)
+        type: string
+        required: true
+      source_ref:
+        description: Full GLEIF packaging commit SHA recorded in the release notes
         type: string
         required: true
 jobs:
@@ -15,7 +19,8 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v7
         with:
-          ref: refs/tags/${{ inputs.version }}
+          ref: ${{ inputs.source_ref }}
+          fetch-depth: 0
 
       - name: Verify release version
         env:
@@ -31,6 +36,15 @@ jobs:
               raise SystemExit("Release tag must match the pyproject.toml version")
           PY
 
+      - name: Fetch released wheel
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          git merge-base --is-ancestor "refs/tags/$RELEASE_VERSION" HEAD
+          mkdir -p dist
+          gh release download "$RELEASE_VERSION" --repo "$GITHUB_REPOSITORY" --pattern 'gleif_keria-*.whl' --dir dist
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v4
         with:
@@ -41,7 +55,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: weboftrust/keria
+          images: gleif/keria
           tags: |
             type=raw,value=${{ inputs.version }}
             type=raw,value=latest
@@ -66,7 +80,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: images/keria.dockerfile
+          file: images/gleif-keria.dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}

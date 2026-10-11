@@ -1,6 +1,25 @@
 # Changelog
 
-## 0.4.1 - Unreleased
+## GLEIF 0.4.1 - 2026-10-11
+
+First PyPI release of `gleif_keria`, the GLEIF distribution of upstream KERIA
+0.4.1. The import package, command, and runtime version remain `keria`, `keria`,
+and `0.4.1`. Install either `keria` or `gleif_keria`, not both in one environment.
+
+The GLEIF `0.4.1` tag preserves upstream's signed tag at commit
+`928ce26a4dfcb802c0efa9b2810c53edd7920f59`. GLEIF distributables are built from
+the subsequent packaging commit on `release/gleif-keria-0.4.1`; its full SHA and
+artifact checksums are recorded in GitHub release notes. The automatically
+generated GitHub source archive is upstream source, not the GLEIF packaging tree.
+
+Only distribution metadata, lockfile project identity, release documentation,
+and Docker packaging differ. KERIA implementation and tests match upstream;
+Seeker changes and the superseded GLEIF PR #6 are excluded. Dependencies remain
+`keri==1.2.14` and `hio==0.6.14`. Docker installs the released wheel with the
+locked runtime dependencies and publishes `gleif/keria:0.4.1` and `latest` for
+Linux AMD64 and ARM64.
+
+## Upstream 0.4.1
 
 Changes since [0.4.0](https://github.com/WebOfTrust/keria/compare/0.4.0...9f38d063807620cca89d00e9119362a6fe850020), including the dependency upgrade from KERIpy `1.2.12` through `1.2.13` to `1.2.14`. HIO remains pinned to `0.6.14`; Python `>=3.12.2` is still required.
 

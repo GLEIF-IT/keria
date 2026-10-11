@@ -520,7 +520,7 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/71/c4/2d63280bb5d9599d9766d22db58a45ddd1fdb0fb12b839692a7a3a76b3c4/keri-1.2.14.tar.gz", hash = "sha256:f921a42794aa83988987f97d27337da38194dcd7fb0124511374112997660656", size = 494448, upload-time = "2026-09-09T15:28:06.354Z" }
 
 [[package]]
-name = "keria"
+name = "gleif-keria"
 version = "0.4.1"
 source = { editable = "." }
 dependencies = [
