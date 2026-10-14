@@ -1,6 +1,6 @@
 [project]
 name = "gleif_keria"
-version = "0.4.1"
+version = "0.4.2"
 description = "KERIA: KERI Agent in the cloud"
 readme = "README.md"
 license = { text = "Apache Software License 2.0" }
@@ -26,8 +26,8 @@ keywords = [
 ]
 requires-python = ">=3.12.2"
 dependencies = [
-    "hio==0.6.14",
-    "keri==1.2.14",
+    "gleif_hio==0.6.20",
+    "gleif_keri==1.2.15",
     "mnemonic==0.21",
     "multicommand>=1.0.0",
     "falcon==4.0.2",
@@ -40,7 +40,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/GLEIF-IT/keria"
-Changelog = "https://github.com/GLEIF-IT/keria/blob/release/gleif-keria-0.4.1/changelog.md"
+Changelog = "https://github.com/GLEIF-IT/keria/blob/release/gleif-keria-0.4.2/changelog.md"
 Issues = "https://github.com/WebOfTrust/keria/issues"
 
 [project.scripts]

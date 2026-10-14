@@ -66,3 +66,26 @@ jobs:
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  fresh-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: 3.12.8
+      - name: Install without the lockfile
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install . pytest requests
+          python -m pip check
+          python - <<'PYTHON'
+          from importlib import metadata
+
+          for name, version in {"gleif_keria": "0.4.2", "gleif_keri": "1.2.15", "gleif_hio": "0.6.20"}.items():
+              assert metadata.version(name) == version
+          for package, provider in {"keria": "gleif-keria", "keri": "gleif-keri", "hio": "gleif-hio"}.items():
+              assert {name.replace("_", "-") for name in metadata.packages_distributions()[package]} == {provider}
+          PYTHON
+      - name: Test freshly resolved dependencies
+        run: python -m pytest tests/
