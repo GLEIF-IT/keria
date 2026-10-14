@@ -294,6 +294,7 @@ class Agency(doing.DoDoer):
             self, releaseTimeout=releaseTimeout, tock=self.tocks["releaser"]
         )
         super(Agency, self).__init__(
+            temp=temp,
             doers=[self.releaser],
             tock=scheduling.DEFAULT_TOCK,
         )

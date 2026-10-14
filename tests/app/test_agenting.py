@@ -525,6 +525,7 @@ def test_agency_without_config_file():
             configFile=None,
             configDir=SCRIPTS_DIR,
         )
+        assert agency.temp is True
         assert agency.cf is None
 
         doist = doing.Doist(limit=1.0, tock=0.03125, real=True)

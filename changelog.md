@@ -7,6 +7,8 @@
 - Adopt the final KERIpy transport and witness lifecycle release, with its
   LMDB compatibility bound and HIO's multidict compatibility bound.
 - Refresh the dependency lock, runtime/build versions, and wheel image input.
+- Preserve temporary Agency storage when initializing the newer HIO Doer base.
+- Keep shared log records unchanged when applying the truncated formatter.
 - Test both the locked environment and fresh dependency resolution in CI.
 - Do not install upstream `keria`, `keri`, or `hio` alongside these GLEIF
   distributions; they share import namespaces.
