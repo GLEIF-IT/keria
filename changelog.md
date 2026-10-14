@@ -1,5 +1,19 @@
 # Changelog
 
+## GLEIF 0.4.2 - 2026-10-14
+
+- Switch to the GLEIF dependency chain: `gleif_keri==1.2.15` and
+  `gleif_hio==0.6.20`, retaining the `keria`, `keri`, and `hio` import packages.
+- Adopt the final KERIpy transport and witness lifecycle release, with its
+  LMDB compatibility bound and HIO's multidict compatibility bound.
+- Refresh the dependency lock, runtime/build versions, and wheel image input.
+- Preserve temporary Agency storage when initializing the newer HIO Doer base.
+- Keep shared log records unchanged when applying the truncated formatter.
+- Test both the locked environment and fresh dependency resolution in CI.
+- Do not install upstream `keria`, `keri`, or `hio` alongside these GLEIF
+  distributions; they share import namespaces.
+
+
 ## GLEIF 0.4.1 - 2026-10-11
 
 First PyPI release of `gleif_keria`, the GLEIF distribution of upstream KERIA

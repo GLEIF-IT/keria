@@ -1,4 +1,5 @@
 import logging
+from copy import copy
 
 
 class TruncatedFormatter(logging.Formatter):
@@ -8,6 +9,7 @@ class TruncatedFormatter(logging.Formatter):
         super().__init__(fmt, datefmt, style)
 
     def format(self, record):
+        record = copy(record)  # Other handlers must receive the original field types.
         # Truncate module and funcName to first 'chars' characters
         mod_chars = 12  # number of spaces to truncate to
         fn_chars = 16  # number of spaces to truncate to

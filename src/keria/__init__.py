@@ -3,7 +3,7 @@
 main package
 """
 
-__version__ = "0.4.1"  # Keep aligned with pyproject.toml.
+__version__ = "0.4.2"  # Keep aligned with pyproject.toml.
 
 import logging
 from hio.help import ogling

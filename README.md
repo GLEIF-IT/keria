@@ -105,6 +105,6 @@ make publish-keria
 ```
 
 The manual **Publish Docker image** workflow builds the Git tag named by its
-`version` input (for example, `0.4.1`). Create that tag from the reviewed release
+`version` input (for example, `0.4.2`). Create that tag from the reviewed release
 commit, whose `pyproject.toml` version must match. The workflow publishes the
 version tag and `latest`; PyPI publication is a separate release step.

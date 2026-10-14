@@ -391,8 +391,8 @@ wheels = [
 ]
 
 [[package]]
-name = "hio"
-version = "0.6.14"
+name = "gleif-hio"
+version = "0.6.20"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cbor2" },
@@ -402,7 +402,94 @@ dependencies = [
     { name = "multidict" },
     { name = "ordered-set" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/46/95/97da1390407769e8b8e863738c5d5906caa2310a3b8e256972af1c7f3240/hio-0.6.14.tar.gz", hash = "sha256:a069790f32205318b29145be17a3910dfdff5ca7b330e16358d14d5e2c9fca3d", size = 88550, upload-time = "2024-07-18T15:30:47.279Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e7/4a/4f68dbe6acb2405e19fb6b97a474c2648246f929ca4c44aa78859d35af01/gleif_hio-0.6.20.tar.gz", hash = "sha256:09ae0f74aef7a0499db8b88679c9ace6ffc39f67feabb66b540619c33a0fa310", size = 132031, upload-time = "2026-10-14T22:37:17.953Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3c/a7/37d240837f11465c6547bfe1325aa88732501d181f525d57387a3de9f2cc/gleif_hio-0.6.20-py3-none-any.whl", hash = "sha256:d4440960ebc7909233b22cc3141933f411e9523c096008159612a0487cd96e4f", size = 149035, upload-time = "2026-10-14T22:37:16.882Z" },
+]
+
+[[package]]
+name = "gleif-keri"
+version = "1.2.15"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "apispec" },
+    { name = "blake3" },
+    { name = "cbor2" },
+    { name = "cryptography" },
+    { name = "falcon" },
+    { name = "gleif-hio" },
+    { name = "hjson" },
+    { name = "http-sfv" },
+    { name = "jsonschema" },
+    { name = "lmdb" },
+    { name = "mnemonic" },
+    { name = "msgpack" },
+    { name = "multicommand" },
+    { name = "multidict" },
+    { name = "ordered-set" },
+    { name = "prettytable" },
+    { name = "pysodium" },
+    { name = "pyyaml" },
+    { name = "qrcode" },
+    { name = "semver" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/62/17/912b6699309f7468de0b95863b647d5f7098b11de57f53d88e6be0c12577/gleif_keri-1.2.15.tar.gz", hash = "sha256:12aea016fcf0ebe4d9bd227cb54380bc35ae733889b67753459952ca0b539e4d", size = 501303, upload-time = "2026-10-14T22:49:19.982Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/31/e0/3f21634c8696495cf98982418a02ad7df0b27df7e342e03cc32b542cd38a/gleif_keri-1.2.15-py3-none-any.whl", hash = "sha256:6eb020f3c3aba73807a8b1a72bb5663d5f1898c6009170520fc62cbb0f924787", size = 619055, upload-time = "2026-10-14T22:49:18.384Z" },
+]
+
+[[package]]
+name = "gleif-keria"
+version = "0.4.2"
+source = { editable = "." }
+dependencies = [
+    { name = "apispec" },
+    { name = "dataclasses-json" },
+    { name = "deprecation" },
+    { name = "falcon" },
+    { name = "gleif-hio" },
+    { name = "gleif-keri" },
+    { name = "http-sfv" },
+    { name = "marshmallow-dataclass" },
+    { name = "mnemonic" },
+    { name = "multicommand" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "coverage" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "requests" },
+    { name = "ruff" },
+    { name = "sphinx" },
+    { name = "sphinx-rtd-theme" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "apispec", specifier = "==6.10.0" },
+    { name = "dataclasses-json", specifier = "==0.6.7" },
+    { name = "deprecation", specifier = "==2.1.0" },
+    { name = "falcon", specifier = "==4.0.2" },
+    { name = "gleif-hio", specifier = "==0.6.20" },
+    { name = "gleif-keri", specifier = "==1.2.15" },
+    { name = "http-sfv", specifier = "==0.9.9" },
+    { name = "marshmallow-dataclass", specifier = "==8.7.1" },
+    { name = "mnemonic", specifier = "==0.21" },
+    { name = "multicommand", specifier = ">=1.0.0" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "coverage", specifier = ">=7.13.4" },
+    { name = "pytest", specifier = ">=9.0.2" },
+    { name = "pytest-cov", specifier = ">=7.0.0" },
+    { name = "requests", specifier = ">=2.32.5" },
+    { name = "ruff", specifier = ">=0.15.5" },
+    { name = "sphinx", specifier = ">=9.1.0" },
+    { name = "sphinx-rtd-theme", specifier = ">=3.1.0" },
+]
 
 [[package]]
 name = "hjson"
@@ -489,87 +576,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz", hash = "sha256:0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272", size = 15561, upload-time = "2024-10-08T12:29:32.068Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d1/0f/8910b19ac0670a0f80ce1008e5e751c4a57e14d2c4c13a482aa6079fa9d6/jsonschema_specifications-2024.10.1-py3-none-any.whl", hash = "sha256:a09a0680616357d9a0ecf05c12ad234479f549239d0f5b55f3deea67475da9bf", size = 18459, upload-time = "2024-10-08T12:29:30.439Z" },
-]
-
-[[package]]
-name = "keri"
-version = "1.2.14"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "apispec" },
-    { name = "blake3" },
-    { name = "cbor2" },
-    { name = "cryptography" },
-    { name = "falcon" },
-    { name = "hio" },
-    { name = "hjson" },
-    { name = "http-sfv" },
-    { name = "jsonschema" },
-    { name = "lmdb" },
-    { name = "mnemonic" },
-    { name = "msgpack" },
-    { name = "multicommand" },
-    { name = "multidict" },
-    { name = "ordered-set" },
-    { name = "prettytable" },
-    { name = "pysodium" },
-    { name = "pyyaml" },
-    { name = "qrcode" },
-    { name = "semver" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/71/c4/2d63280bb5d9599d9766d22db58a45ddd1fdb0fb12b839692a7a3a76b3c4/keri-1.2.14.tar.gz", hash = "sha256:f921a42794aa83988987f97d27337da38194dcd7fb0124511374112997660656", size = 494448, upload-time = "2026-09-09T15:28:06.354Z" }
-
-[[package]]
-name = "gleif-keria"
-version = "0.4.1"
-source = { editable = "." }
-dependencies = [
-    { name = "apispec" },
-    { name = "dataclasses-json" },
-    { name = "deprecation" },
-    { name = "falcon" },
-    { name = "hio" },
-    { name = "http-sfv" },
-    { name = "keri" },
-    { name = "marshmallow-dataclass" },
-    { name = "mnemonic" },
-    { name = "multicommand" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "coverage" },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "requests" },
-    { name = "ruff" },
-    { name = "sphinx" },
-    { name = "sphinx-rtd-theme" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "apispec", specifier = "==6.10.0" },
-    { name = "dataclasses-json", specifier = "==0.6.7" },
-    { name = "deprecation", specifier = "==2.1.0" },
-    { name = "falcon", specifier = "==4.0.2" },
-    { name = "hio", specifier = "==0.6.14" },
-    { name = "http-sfv", specifier = "==0.9.9" },
-    { name = "keri", specifier = "==1.2.14" },
-    { name = "marshmallow-dataclass", specifier = "==8.7.1" },
-    { name = "mnemonic", specifier = "==0.21" },
-    { name = "multicommand", specifier = ">=1.0.0" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "coverage", specifier = ">=7.13.4" },
-    { name = "pytest", specifier = ">=9.0.2" },
-    { name = "pytest-cov", specifier = ">=7.0.0" },
-    { name = "requests", specifier = ">=2.32.5" },
-    { name = "ruff", specifier = ">=0.15.5" },
-    { name = "sphinx", specifier = ">=9.1.0" },
-    { name = "sphinx-rtd-theme", specifier = ">=3.1.0" },
 ]
 
 [[package]]

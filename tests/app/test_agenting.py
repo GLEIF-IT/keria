@@ -479,7 +479,11 @@ def test_agency():
         agent = agency.create(caid, salt=salter.qb64)
         assert agent.pre == "EBtONOpwylm2krDPNyvfN8F1dlbAxpGcKBcY7WRzs3aq"
 
-        # Rcreate the agency to see if agent is reloaded from disk
+        # Close the first instance before reopening the same LMDB environments.
+        agency.shut(agent)
+        agency.adb.close()
+
+        # Recreate the agency to see if agent is reloaded from disk
         agency = agenting.Agency(
             name="agency",
             base=base,
@@ -492,6 +496,12 @@ def test_agency():
         agent = agency.get(caid)
         assert agent.pre == "EBtONOpwylm2krDPNyvfN8F1dlbAxpGcKBcY7WRzs3aq"
 
+        agency.shut(agent)
+        assert caid not in agency.agents
+        assert len(agent.doers) == 0
+
+        agency.adb.close()
+
         # Clean up afterwards
         if os.path.exists(f"/usr/local/var/keri/db/{base}"):
             shutil.rmtree(f"/usr/local/var/keri/db/{base}")
@@ -501,10 +511,6 @@ def test_agency():
             shutil.rmtree(f"/usr/local/var/keri/ks/{base}")
         if os.path.exists(f"/usr/local/var/keri/adb/{base}"):
             shutil.rmtree(f"/usr/local/var/keri/adb/{base}")
-
-        agency.shut(agent)
-        assert caid not in agency.agents
-        assert len(agent.doers) == 0
 
 
 def test_agency_without_config_file():
@@ -525,6 +531,7 @@ def test_agency_without_config_file():
             configFile=None,
             configDir=SCRIPTS_DIR,
         )
+        assert agency.temp is True
         assert agency.cf is None
 
         doist = doing.Doist(limit=1.0, tock=0.03125, real=True)
