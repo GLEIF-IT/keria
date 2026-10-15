@@ -82,7 +82,7 @@ jobs:
           python - <<'PYTHON'
           from importlib import metadata
 
-          for name, version in {"gleif_keria": "0.4.2", "gleif_keri": "1.2.15", "gleif_hio": "0.6.20"}.items():
+          for name, version in {"gleif_keria": "0.4.3", "gleif_keri": "1.2.16", "gleif_hio": "0.6.21"}.items():
               assert metadata.version(name) == version
           for package, provider in {"keria": "gleif-keria", "keri": "gleif-keri", "hio": "gleif-hio"}.items():
               assert {name.replace("_", "-") for name in metadata.packages_distributions()[package]} == {provider}

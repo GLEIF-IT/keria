@@ -392,7 +392,7 @@ wheels = [
 
 [[package]]
 name = "gleif-hio"
-version = "0.6.20"
+version = "0.6.21"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cbor2" },
@@ -402,14 +402,14 @@ dependencies = [
     { name = "multidict" },
     { name = "ordered-set" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e7/4a/4f68dbe6acb2405e19fb6b97a474c2648246f929ca4c44aa78859d35af01/gleif_hio-0.6.20.tar.gz", hash = "sha256:09ae0f74aef7a0499db8b88679c9ace6ffc39f67feabb66b540619c33a0fa310", size = 132031, upload-time = "2026-10-14T22:37:17.953Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/19/86/1ce131135eceb0bfbb012b7654c74786ea1e94e4cb619742e0deada3acc5/gleif_hio-0.6.21.tar.gz", hash = "sha256:91567694212b5421c3e7babc5572c8dff363123b3225bb4cea9878e78cc54992", size = 132249, upload-time = "2026-10-15T01:11:18.342Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3c/a7/37d240837f11465c6547bfe1325aa88732501d181f525d57387a3de9f2cc/gleif_hio-0.6.20-py3-none-any.whl", hash = "sha256:d4440960ebc7909233b22cc3141933f411e9523c096008159612a0487cd96e4f", size = 149035, upload-time = "2026-10-14T22:37:16.882Z" },
+    { url = "https://files.pythonhosted.org/packages/d4/52/91480f3e31315f200b29f5aeb8f915c738404a4248e08e36486d3daae6fe/gleif_hio-0.6.21-py3-none-any.whl", hash = "sha256:7ac51425a5ca65caea1910a8cd5764ad853dca7000d46f7e9f1ab6147d6caac8", size = 149233, upload-time = "2026-10-15T01:11:17.064Z" },
 ]
 
 [[package]]
 name = "gleif-keri"
-version = "1.2.15"
+version = "1.2.16"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "apispec" },
@@ -433,14 +433,14 @@ dependencies = [
     { name = "qrcode" },
     { name = "semver" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/62/17/912b6699309f7468de0b95863b647d5f7098b11de57f53d88e6be0c12577/gleif_keri-1.2.15.tar.gz", hash = "sha256:12aea016fcf0ebe4d9bd227cb54380bc35ae733889b67753459952ca0b539e4d", size = 501303, upload-time = "2026-10-14T22:49:19.982Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/5e/f3/d4639582616a4eb444dccd41404b519f71d3cfc0317dca087cf23f2f473a/gleif_keri-1.2.16.tar.gz", hash = "sha256:e94ef093b32bb12664ce7fb6be46c743cba969850ee4d559f3b1e05e4e6e3f25", size = 501420, upload-time = "2026-10-15T01:20:07.438Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/31/e0/3f21634c8696495cf98982418a02ad7df0b27df7e342e03cc32b542cd38a/gleif_keri-1.2.15-py3-none-any.whl", hash = "sha256:6eb020f3c3aba73807a8b1a72bb5663d5f1898c6009170520fc62cbb0f924787", size = 619055, upload-time = "2026-10-14T22:49:18.384Z" },
+    { url = "https://files.pythonhosted.org/packages/ff/a7/9d9c7b17361b91d3d5405d5013b9e7a185b8d172c528cf355aef123563f7/gleif_keri-1.2.16-py3-none-any.whl", hash = "sha256:3a8caf11168cadf4d6294831c928d8c4ec260cba6ab2c9da9e504b3793bbc498", size = 619056, upload-time = "2026-10-15T01:20:05.403Z" },
 ]
 
 [[package]]
 name = "gleif-keria"
-version = "0.4.2"
+version = "0.4.3"
 source = { editable = "." }
 dependencies = [
     { name = "apispec" },
@@ -472,8 +472,8 @@ requires-dist = [
     { name = "dataclasses-json", specifier = "==0.6.7" },
     { name = "deprecation", specifier = "==2.1.0" },
     { name = "falcon", specifier = "==4.0.2" },
-    { name = "gleif-hio", specifier = "==0.6.20" },
-    { name = "gleif-keri", specifier = "==1.2.15" },
+    { name = "gleif-hio", specifier = "==0.6.21" },
+    { name = "gleif-keri", specifier = "==1.2.16" },
     { name = "http-sfv", specifier = "==0.9.9" },
     { name = "marshmallow-dataclass", specifier = "==8.7.1" },
     { name = "mnemonic", specifier = "==0.21" },
