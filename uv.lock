@@ -409,7 +409,7 @@ wheels = [
 
 [[package]]
 name = "gleif-keri"
-version = "1.2.16"
+version = "1.2.17"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "apispec" },
@@ -433,14 +433,14 @@ dependencies = [
     { name = "qrcode" },
     { name = "semver" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5e/f3/d4639582616a4eb444dccd41404b519f71d3cfc0317dca087cf23f2f473a/gleif_keri-1.2.16.tar.gz", hash = "sha256:e94ef093b32bb12664ce7fb6be46c743cba969850ee4d559f3b1e05e4e6e3f25", size = 501420, upload-time = "2026-10-15T01:20:07.438Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/be/74/5b1ee5d0b3fd3d17d7936188f206b65c5022010103f45fe6a3186e4a7a7f/gleif_keri-1.2.17.tar.gz", hash = "sha256:e097e0fc19580b72b9f6594f4ffc1149e33ed088aae3b130b132b64e1f86818b", size = 501433, upload-time = "2026-10-15T20:22:37.083Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ff/a7/9d9c7b17361b91d3d5405d5013b9e7a185b8d172c528cf355aef123563f7/gleif_keri-1.2.16-py3-none-any.whl", hash = "sha256:3a8caf11168cadf4d6294831c928d8c4ec260cba6ab2c9da9e504b3793bbc498", size = 619056, upload-time = "2026-10-15T01:20:05.403Z" },
+    { url = "https://files.pythonhosted.org/packages/53/7f/59a53924ad814f875c5ad25fe943aa0049637fe4933da3556a41f7c727de/gleif_keri-1.2.17-py3-none-any.whl", hash = "sha256:5d0ee816794cd4af99117669061552caefc9aae0ad6eba2b294182a6d8b7de2a", size = 619059, upload-time = "2026-10-15T20:22:35.538Z" },
 ]
 
 [[package]]
 name = "gleif-keria"
-version = "0.4.3"
+version = "0.4.4"
 source = { editable = "." }
 dependencies = [
     { name = "apispec" },
@@ -473,7 +473,7 @@ requires-dist = [
     { name = "deprecation", specifier = "==2.1.0" },
     { name = "falcon", specifier = "==4.0.2" },
     { name = "gleif-hio", specifier = "==0.6.21" },
-    { name = "gleif-keri", specifier = "==1.2.16" },
+    { name = "gleif-keri", specifier = "==1.2.17" },
     { name = "http-sfv", specifier = "==0.9.9" },
     { name = "marshmallow-dataclass", specifier = "==8.7.1" },
     { name = "mnemonic", specifier = "==0.21" },
