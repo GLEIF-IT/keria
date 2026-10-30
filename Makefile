@@ -1,6 +1,6 @@
 .PHONY: build-keria
 
-VERSION=0.4.6
+VERSION=0.4.7
 IMAGE_NAME=gleif/keria
 VERSION_TAG=$(IMAGE_NAME):$(VERSION)
 LATEST_TAG=$(IMAGE_NAME):latest
