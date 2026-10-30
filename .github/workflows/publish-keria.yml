@@ -41,7 +41,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: weboftrust/keria
+          images: gleif/keria
           tags: |
             type=raw,value=${{ inputs.version }}
             type=raw,value=latest
@@ -66,7 +66,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: images/keria.dockerfile
+          file: images/gleif-keria.dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
