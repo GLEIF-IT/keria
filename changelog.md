@@ -1,5 +1,15 @@
 # Changelog
 
+## GLEIF 0.4.6 - 2026-10-29
+
+- Carry KERIpy 1.2.18's Python security baseline through KERIA's own build and
+  image: require `setuptools>=84.1.0` and `wheel>=0.46.2`, use Python 3.12.15
+  on Alpine 3.23, upgrade platform packages, and remove package installers and
+  the bundled `ensurepip` payload from the runtime image.
+- Build and verify the versioned release wheel before the multi-architecture
+  Docker publication step. KERIA's locked application dependencies remain on
+  the audited KERI 1.2.18 / HIO 0.6.22 security line.
+
 ## GLEIF 0.4.5 - 2026-10-29
 
 - Upgrade the agency to `gleif_keri==1.2.18` and `gleif_hio==0.6.22`, carrying

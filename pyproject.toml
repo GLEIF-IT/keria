@@ -1,6 +1,6 @@
 [project]
 name = "gleif_keria"
-version = "0.4.5"
+version = "0.4.6"
 description = "KERIA: KERI Agent in the cloud"
 readme = "README.md"
 license = { text = "Apache Software License 2.0" }
@@ -41,8 +41,12 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/GLEIF-IT/keria"
-Changelog = "https://github.com/GLEIF-IT/keria/blob/release/gleif-keria-0.4.5/changelog.md"
+Changelog = "https://github.com/GLEIF-IT/keria/blob/main/changelog.md"
 Issues = "https://github.com/WebOfTrust/keria/issues"
+
+[build-system]
+requires = ["setuptools>=84.1.0", "wheel>=0.46.2"]
+build-backend = "setuptools.build_meta"
 
 [project.scripts]
 keria = "keria.app.cli.keria:main"
