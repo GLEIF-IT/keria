@@ -526,7 +526,7 @@ wheels = [
 
 [[package]]
 name = "gleif-keri"
-version = "1.2.18"
+version = "1.2.19"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "apispec" },
@@ -550,14 +550,14 @@ dependencies = [
     { name = "qrcode" },
     { name = "semver" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f7/01/bf543ff2ddcfbc24596bb760dfd4a84d290c7f2f005398fc21f858825219/gleif_keri-1.2.18.tar.gz", hash = "sha256:6bf7bf0f12700b60bf067cd54dab087c9e3183b7580303408e4fb78cf32bd88a", size = 502696, upload-time = "2026-10-30T02:52:06.639Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/71/07/aedf7027b776d19951f4f1c2b5aa4a57dcb82c2f6ca851828a72312855ec/gleif_keri-1.2.19.tar.gz", hash = "sha256:490b12379571a0989c58a1b4c8f6ff472db95ca672232c1098ceb53c5a73e4eb", size = 502935, upload-time = "2026-10-30T22:23:27.771Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d2/60/b0dbfd84cc63cda635a58e3c6c7e23906e914724da0673d8d2e370da3657/gleif_keri-1.2.18-py3-none-any.whl", hash = "sha256:fb70375a6449076b80c16f49dce0c94d9c9823c0bc43f5c4821bdd919335a878", size = 619076, upload-time = "2026-10-30T02:52:05.311Z" },
+    { url = "https://files.pythonhosted.org/packages/3f/73/adc6cc99266e262fd6ab04e34a00e38def2099d7cc90300e42cf97648006/gleif_keri-1.2.19-py3-none-any.whl", hash = "sha256:9e0bc6adc1dd5a9289bbfaeb0a6e5b75f888feccac349a3a46c63a82af247206", size = 620447, upload-time = "2026-10-30T22:23:26.331Z" },
 ]
 
 [[package]]
 name = "gleif-keria"
-version = "0.4.6"
+version = "0.4.7"
 source = { editable = "." }
 dependencies = [
     { name = "apispec" },
@@ -591,7 +591,7 @@ requires-dist = [
     { name = "deprecation", specifier = "==2.1.0" },
     { name = "falcon", specifier = "==4.0.2" },
     { name = "gleif-hio", specifier = "==0.6.22" },
-    { name = "gleif-keri", specifier = "==1.2.18" },
+    { name = "gleif-keri", specifier = "==1.2.19" },
     { name = "http-sfv", specifier = "==0.9.9" },
     { name = "marshmallow", specifier = ">=3.26.2,<4.0.0" },
     { name = "marshmallow-dataclass", specifier = "==8.7.1" },
