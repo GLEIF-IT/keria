@@ -31,6 +31,16 @@ jobs:
               raise SystemExit("Release tag must match the pyproject.toml version")
           PY
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Build the release wheel
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          uv build --wheel
+          test -f "dist/gleif_keria-${RELEASE_VERSION}-py3-none-any.whl"
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v4
         with:
