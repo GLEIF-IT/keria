@@ -1,15 +1,13 @@
-FROM python:3.12.8-alpine3.21 AS builder
+ARG BASE=python:3.12.15-alpine3.23@sha256:3d0ca66b723a0ff2a7a6e424cc2d01443e1b7c75ffcc110145f75d0f4daf6d63
+FROM ${BASE} AS base
 
-RUN apk --no-cache add \
-    curl \
-    bash \
-    alpine-sdk \
-    libffi-dev \
-    libsodium \
-    libsodium-dev
+RUN apk upgrade --no-cache && apk add --no-cache bash ca-certificates curl libsodium-dev binutils \
+    && update-ca-certificates
+RUN python -m pip install --no-cache-dir \
+    'pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70'
 
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="/root/.cargo/bin:${PATH}"
+FROM base AS builder
+RUN apk add --no-cache build-base libffi-dev cargo
 
 COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /uvx /bin/
 
@@ -21,16 +19,13 @@ RUN uv sync --locked --no-dev --no-editable
 COPY src/ src/
 RUN uv sync --locked --no-dev
 
-FROM python:3.12.8-alpine3.21
+FROM base
 WORKDIR /keria
 
-RUN apk --no-cache add \
-    bash \
-    curl \
-    libsodium-dev \
-    gcc
-
 COPY --from=builder /keria /keria
+# Runtime installation is complete; omit installers and ensurepip's old bundle.
+RUN python -m pip uninstall -y pip \
+    && rm -rf /usr/local/lib/python3.12/ensurepip
 
 ENV PATH="/keria/.venv/bin:$PATH"
 ENV PYTHONUNBUFFERED=1
