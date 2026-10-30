@@ -1,5 +1,12 @@
 # Changelog
 
+## GLEIF 0.4.7 - 2026-10-30
+
+- Adopt `gleif_keri==1.2.19` for queued Counselor receipt-query deduplication,
+  successful HTTP query cleanup, and bounded TCP query retention in agents.
+- Preserve `gleif_hio==0.6.22`, the existing security baseline, and the
+  wheel-based release image.
+
 ## GLEIF 0.4.6 - 2026-10-29
 
 - Carry KERIpy 1.2.18's Python security baseline through KERIA's own build and

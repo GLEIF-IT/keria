@@ -12,10 +12,10 @@ COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /uvx /bin/
 WORKDIR /keria
 COPY pyproject.toml uv.lock README.md ./
 RUN uv sync --locked --no-dev --no-editable --no-install-project
-COPY dist/gleif_keria-0.4.6-py3-none-any.whl /tmp/release.whl
+COPY dist/gleif_keria-0.4.7-py3-none-any.whl /tmp/release.whl
 # Use the same wheel attached to GitHub and uploaded to PyPI, not a source install.
-RUN mv /tmp/release.whl /tmp/gleif_keria-0.4.6-py3-none-any.whl && \
-    uv pip install --python /keria/.venv/bin/python --no-deps /tmp/gleif_keria-0.4.6-py3-none-any.whl && \
+RUN mv /tmp/release.whl /tmp/gleif_keria-0.4.7-py3-none-any.whl && \
+    uv pip install --python /keria/.venv/bin/python --no-deps /tmp/gleif_keria-0.4.7-py3-none-any.whl && \
     uv pip check --python /keria/.venv/bin/python
 
 FROM base
