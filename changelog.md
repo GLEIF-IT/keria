@@ -1,5 +1,17 @@
 # Changelog
 
+## GLEIF 0.4.5 - 2026-10-29
+
+- Upgrade the agency to `gleif_keri==1.2.18` and `gleif_hio==0.6.22`, carrying
+  the delegated-rotation replay correction and current dependency security
+  floors into every KERIA agent.
+- Refresh the locked environment, package/runtime versions, and wheel-based
+  release image while preserving exclusive `keria`, `keri`, and `hio` import
+  ownership. Require the fixed Marshmallow runtime line and refresh development
+  dependencies past their current security advisories.
+- Publish the GLEIF release image from the same wheel delivered to PyPI as
+  `gleif/keria:0.4.5` and `latest` for AMD64 and ARM64.
+
 ## GLEIF 0.4.2 - 2026-10-14
 
 - Switch to the GLEIF dependency chain: `gleif_keri==1.2.15` and
